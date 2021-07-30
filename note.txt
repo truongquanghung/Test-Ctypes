@@ -1,0 +1,2 @@
+g++ -shared -o testlib.so -fPIC test.cpp
+py test_ctypes.py
