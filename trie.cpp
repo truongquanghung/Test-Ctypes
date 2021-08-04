@@ -100,7 +100,7 @@ extern "C" void insert_trie(char *key)
 {
     string new_key(key);
     insert_key(rt, new_key);
-    cout << "Add complete!" << endl;
+    // cout << "Add complete!" << endl;
 }
 
 extern "C" void get_data_trie(char *key)
@@ -109,6 +109,34 @@ extern "C" void get_data_trie(char *key)
     vector<string> res = get_data(rt, new_key);
     for (int i = 0; i < res.size(); i++)
         cout << res[i] << endl;
+}
+
+extern "C" int get_num_trie(char *key)
+{
+    string new_key(key);
+    vector<string> res = get_data(rt, new_key);
+    return res.size();
+}
+
+extern "C" int* get_size_trie(char *key){
+    string new_key(key);
+    vector<string> s = get_data(rt, new_key);
+    int *res = new int[s.size()];
+    for (int i = 0; i < s.size(); i++)
+        res[i] = s[i].length();
+    return res;
+}
+
+extern "C" char** pass_data_trie(char *key)
+{
+    string new_key(key);
+    vector<string> res = get_data(rt, new_key);
+    char ** response = new char*[res.size()];
+    for (int i = 0; i < res.size(); i++){
+        response[i] = new char[res[i].length()];
+        for (int j=0;j<res[i].length();j++) response[i][j] = res[i][j];
+    }
+    return response;
 }
 
 // int main()
