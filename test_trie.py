@@ -90,4 +90,12 @@ while True:
     print(test.get_data(s))
     stop = timeit.default_timer()
     print('Time response in Python: ', stop - start)  
+
+    # start = timeit.default_timer()
+    # sql = f"SELECT {column} from {table} WHERE {column} LIKE '%{s}%'"
+    # data = conn.execute(sql)
+    # for row in data:
+    #     print(row[0])
+    # stop = timeit.default_timer()
+    # print('Time response in raw Query: ', stop - start)  
     print("--------------------")
